@@ -5,7 +5,6 @@ import localforage from 'localforage';
 import { RootState } from '../../store';
 
 export const tasksAdapter = createEntityAdapter<Task>({
-  selectId: (task) => task.id,
   sortComparer: (a, b) => b.updatedAt - a.updatedAt,
 });
 
@@ -46,7 +45,7 @@ export const fetchTasks = createAsyncThunk(
       const response = await fetch(`http://localhost:4000/api/tasks?page=${page}&pageSize=${pageSize}`);
       if (!response.ok) throw new Error('Network response was not ok');
       const data: PaginatedResponse<unknown> = await response.json();
-      
+
       const normalizedTasks = data.items
         .map(normalizeTask)
         .filter((t): t is Task => t !== null);

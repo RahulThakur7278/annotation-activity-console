@@ -25,3 +25,59 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Custom class to force all AI summary text to be black in TaskDetail */
+.task-summary-content {
+  --tw-prose-body: #000000;
+  --tw-prose-headings: #000000;
+  --tw-prose-lead: #000000;
+  --tw-prose-links: #000000;
+  --tw-prose-bold: #000000;
+  --tw-prose-counters: #000000;
+  --tw-prose-bullets: #000000;
+  --tw-prose-hr: #e5e7eb;
+  --tw-prose-quotes: #000000;
+  --tw-prose-quote-borders: #e5e7eb;
+  --tw-prose-captions: #000000;
+  --tw-prose-code: #000000;
+  --tw-prose-pre-code: #000000;
+  --tw-prose-pre-bg: #f3f4f6;
+  --tw-prose-th-borders: #e5e7eb;
+  --tw-prose-td-borders: #e5e7eb;
+
+  --tw-prose-invert-body: #000000;
+  --tw-prose-invert-headings: #000000;
+  --tw-prose-invert-lead: #000000;
+  --tw-prose-invert-links: #000000;
+  --tw-prose-invert-bold: #000000;
+  --tw-prose-invert-counters: #000000;
+  --tw-prose-invert-bullets: #000000;
+  --tw-prose-invert-hr: #e5e7eb;
+  --tw-prose-invert-quotes: #000000;
+  --tw-prose-invert-quote-borders: #e5e7eb;
+  --tw-prose-invert-captions: #000000;
+  --tw-prose-invert-code: #000000;
+  --tw-prose-invert-pre-code: #000000;
+  --tw-prose-invert-pre-bg: #f3f4f6;
+  --tw-prose-invert-th-borders: #e5e7eb;
+  --tw-prose-invert-td-borders: #e5e7eb;
+}
+
+/* Fallbacks to guarantee absolute black color for all text elements */
+.task-summary-content,
+.task-summary-content p,
+.task-summary-content li,
+.task-summary-content pre,
+.task-summary-content code,
+.task-summary-content blockquote,
+.task-summary-content strong,
+.task-summary-content em,
+.task-summary-content a,
+.task-summary-content h1,
+.task-summary-content h2,
+.task-summary-content h3,
+.task-summary-content h4,
+.task-summary-content h5,
+.task-summary-content h6 {
+  color: #000000 !important;
+}

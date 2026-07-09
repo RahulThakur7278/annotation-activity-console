@@ -4,9 +4,10 @@ import DOMPurify from 'dompurify';
 
 interface SafeMarkdownProps {
   content: string;
+  className?: string;
 }
 
-export const SafeMarkdown: React.FC<SafeMarkdownProps> = ({ content }) => {
+export const SafeMarkdown: React.FC<SafeMarkdownProps> = ({ content, className = '' }) => {
   const sanitizedHtml = useMemo(() => {
     // 1. Parse markdown to raw HTML
     // We use marked.parse synchronously (it returns a string or Promise depending on config, but by default string for synchronous input)
@@ -23,7 +24,7 @@ export const SafeMarkdown: React.FC<SafeMarkdownProps> = ({ content }) => {
       ],
       // Let's strip <img> since we don't expect or trust user images, or if we do, 
       // DOMPurify strips `onerror` by default anyway. But strictly, let's just strip img.
-      FORBID_TAGS: ['script', 'style', 'img'], 
+      FORBID_TAGS: ['script', 'style', 'img'],
       FORBID_ATTR: ['onerror', 'onload', 'onmouseover'],
     });
 
@@ -31,9 +32,9 @@ export const SafeMarkdown: React.FC<SafeMarkdownProps> = ({ content }) => {
   }, [content]);
 
   return (
-    <div 
-      className="prose prose-sm dark:prose-invert max-w-none break-words"
-      dangerouslySetInnerHTML={{ __html: sanitizedHtml }} 
+    <div
+      className={`prose prose-sm dark:prose-invert max-w-none break-words ${className}`}
+      dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
     />
   );
 };

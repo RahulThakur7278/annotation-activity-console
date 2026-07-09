@@ -72,7 +72,7 @@ export function TaskDetail({ taskId }: TaskDetailProps) {
         ) : (
           <div className="bg-white p-6 rounded-lg border shadow-sm min-h-50">
             {summary ? (
-              <SafeMarkdown content={summary} />
+              <SafeMarkdown content={summary} className="task-summary-content" />
             ) : isLoading ? (
               <div className="text-gray-400 italic">Generating summary...</div>
             ) : (
